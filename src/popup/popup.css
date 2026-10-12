@@ -1,0 +1,79 @@
+:root {
+  --bg: #ffffff;
+  --fg: #18181b;
+  --muted: #71717a;
+  --border: #d4d4d8;
+  --field: #fafafa;
+  --accent: #16a34a;
+  --accent-fg: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #18181b;
+    --fg: #f4f4f5;
+    --muted: #a1a1aa;
+    --border: #3f3f46;
+    --field: #27272a;
+    --accent: #22c55e;
+    --accent-fg: #052e16;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  width: 340px;
+  margin: 0;
+  padding: 12px;
+  font: 13px/1.4 system-ui, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+textarea {
+  width: 100%;
+  height: 130px;
+  resize: vertical;
+  padding: 8px;
+  font: inherit;
+  color: inherit;
+  background: var(--field);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+input[type=number] {
+  width: 48px;
+  font: inherit;
+  color: inherit;
+  background: var(--field);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+input[type=range] { width: 100%; accent-color: var(--accent); }
+button {
+  font: inherit;
+  color: inherit;
+  background: var(--field);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+button:disabled { opacity: .5; cursor: default; }
+button.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; }
+.buttons { display: flex; gap: 6px; margin: 8px 0 4px; }
+.buttons .primary { flex: 1; }
+.muted { color: var(--muted); }
+.small { font-size: 11px; }
+#estimate, #status { min-height: 18px; font-size: 12px; }
+section, details { border-top: 1px solid var(--border); padding-top: 8px; margin-top: 8px; }
+summary { cursor: pointer; font-weight: 600; margin-bottom: 6px; }
+.slider { display: block; margin-bottom: 8px; }
+.slider span { display: flex; justify-content: space-between; }
+.check { display: block; margin-bottom: 6px; }
+.pair { margin-bottom: 8px; }
+.notice {
+  background: var(--field);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+}

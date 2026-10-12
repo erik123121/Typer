@@ -1,0 +1,15 @@
+{
+  "name": "typer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Firefox extension that types text like a person: natural timing, typos, and review passes that go back and fix them.",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "start": "web-ext run --source-dir . --start-url test/playground.html",
+    "lint": "web-ext lint --source-dir .",
+    "build": "web-ext build --source-dir . --overwrite-dest"
+  },
+  "devDependencies": {
+    "web-ext": "^8.3.0"
+  }
+}

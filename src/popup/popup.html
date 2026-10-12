@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="perm" class="notice" hidden>
+    Typer needs access to websites to type into them.
+    <button id="grant">Allow</button>
+  </div>
+
+  <textarea id="text" placeholder="Paste the text to type…" spellcheck="false"></textarea>
+  <div id="estimate" class="muted"></div>
+
+  <div class="buttons">
+    <button id="start" class="primary">Start</button>
+    <button id="toggle">Pause</button>
+    <button id="stop">Stop</button>
+  </div>
+  <div id="status" class="muted"></div>
+
+  <section>
+    <label class="slider">
+      <span>Speed <b id="wpmOut"></b></span>
+      <input type="range" id="wpm" min="15" max="150" step="1">
+    </label>
+    <label class="slider">
+      <span>Typos <b id="mistakeRateOut"></b></span>
+      <input type="range" id="mistakeRate" min="0" max="0.2" step="0.005">
+    </label>
+    <label class="slider">
+      <span>Left in to fix later <b id="deferredShareOut"></b></span>
+      <input type="range" id="deferredShare" min="0" max="1" step="0.05">
+    </label>
+  </section>
+
+  <details>
+    <summary>Review passes</summary>
+    <div class="pair">
+      <label>Go back every
+        <input type="number" id="reviewEveryMin" min="1" max="20"> to
+        <input type="number" id="reviewEveryMax" min="1" max="20"> paragraphs
+      </label>
+    </div>
+    <label class="slider">
+      <span>Typos fixed per review <b id="reviewFixRateOut"></b></span>
+      <input type="range" id="reviewFixRate" min="0" max="1" step="0.05">
+    </label>
+    <label class="check"><input type="checkbox" id="finalReview"> Final pass over the whole text</label>
+    <label class="slider">
+      <span>Typos fixed in final pass <b id="finalReviewFixRateOut"></b></span>
+      <input type="range" id="finalReviewFixRate" min="0" max="1" step="0.05">
+    </label>
+  </details>
+
+  <details>
+    <summary>More</summary>
+    <label class="slider">
+      <span>Rhythm variation <b id="varianceOut"></b></span>
+      <input type="range" id="variance" min="0.05" max="0.7" step="0.05">
+    </label>
+    <label class="check"><input type="checkbox" id="thinkingPauses"> Thinking pauses</label>
+    <label class="check"><input type="checkbox" id="keyEvents"> Send key events</label>
+    <label class="check"><input type="checkbox" id="pauseOnUserInput"> Pause when I type or click in the field</label>
+    <div class="pair">
+      <label>Countdown <input type="number" id="startDelay" min="0" max="30"> s</label>
+    </div>
+    <p class="muted small">Shortcuts: Alt+Shift+Y start · Alt+Shift+P pause · Alt+Shift+X or Esc stop.</p>
+  </details>
+
+  <script src="../engine.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

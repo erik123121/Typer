@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Typer",
+  "version": "0.1.0",
+  "description": "Types text into any field like a person would: natural timing, typos, and going back to fix them.",
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+  "action": {
+    "default_title": "Typer",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": "icons/icon.svg"
+  },
+  "background": {
+    "scripts": ["src/background.js"]
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "match_about_blank": true,
+      "js": ["src/engine.js", "src/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "start-typing": {
+      "suggested_key": { "default": "Alt+Shift+Y" },
+      "description": "Start typing the saved text into the focused field"
+    },
+    "toggle-typing": {
+      "suggested_key": { "default": "Alt+Shift+P" },
+      "description": "Pause or resume typing"
+    },
+    "stop-typing": {
+      "suggested_key": { "default": "Alt+Shift+X" },
+      "description": "Stop typing"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "typer@example.org",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
